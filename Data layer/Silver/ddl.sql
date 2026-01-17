@@ -1,5 +1,5 @@
 -- ============================================================================
--- SILVER LAYER: TABELA USUARIO
+-- SILVER LAYER: TABELA USER
 -- Camada Silver - Dados de comportamento e perfil de usuários limpos
 -- ============================================================================
 
@@ -10,11 +10,11 @@ CREATE SCHEMA IF NOT EXISTS silver;
 COMMENT ON SCHEMA silver IS 'Camada Silver - Dados tratados e validados';
 
 -- ============================================================================
--- TABELA: USUARIO
+-- TABELA: USER
 -- ============================================================================
-DROP TABLE IF EXISTS silver.usuario CASCADE;
+DROP TABLE IF EXISTS silver.user CASCADE;
 
-CREATE TABLE silver.usuario (
+CREATE TABLE silver.user (
     user_id                     BIGINT PRIMARY KEY,
     age                         INTEGER,
     gender                      VARCHAR(20),
