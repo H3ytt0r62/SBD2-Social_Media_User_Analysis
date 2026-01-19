@@ -98,6 +98,10 @@ COMMENT ON COLUMN USUARIO.time_on_explore_per_day IS 'Tempo no explorar por dia'
 COMMENT ON COLUMN USUARIO.time_on_reels_per_day IS 'Tempo no reels por dia';
 
 
+-- ============================================================================
+-- ÍNDICES PARA PERFORMANCE
+-- ============================================================================
+
 CREATE UNIQUE INDEX idx_user_id ON silver.user (user_id);
 CREATE INDEX idx_user_country ON silver.user (country);
 CREATE INDEX idx_user_urban_rural ON silver.user (urban_rural);
