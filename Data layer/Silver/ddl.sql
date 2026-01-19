@@ -55,3 +55,30 @@ CREATE TABLE silver.user (
     -- Metadata
     created_at                  TIMESTAMP DEFAULT NOW()
 );
+
+
+CREATE UNIQUE INDEX idx_user_id ON silver.user (user_id);
+CREATE INDEX idx_user_country ON silver.user (country);
+CREATE INDEX idx_user_urban_rural ON silver.user (urban_rural);
+CREATE INDEX idx_user_age ON silver.user (age);
+CREATE INDEX idx_user_gender ON silver.user (gender);
+CREATE INDEX idx_user_income ON silver.user (income_level);
+CREATE INDEX idx_user_employment ON silver.user (employment_status);
+CREATE INDEX idx_user_relationship ON silver.user (relationship_status);
+CREATE INDEX idx_user_exercise ON silver.user (exercise_hours_per_week);
+CREATE INDEX idx_user_sleep ON silver.user (sleep_hours_per_night);
+CREATE INDEX idx_user_diet ON silver.user (diet_quality);
+CREATE INDEX idx_user_smoking ON silver.user (smoking);
+CREATE INDEX idx_user_alcohol ON silver.user (alcohol_frequency);
+CREATE INDEX idx_user_stress ON silver.user (perceived_stress_score);
+CREATE INDEX idx_user_happiness ON silver.user (self_reported_happiness);
+CREATE INDEX idx_user_bmi ON silver.user (body_mass_index);
+CREATE INDEX idx_user_instagram_minutes ON silver.user (daily_active_minutes_instagram);
+CREATE INDEX idx_user_reels_watched ON silver.user (reels_watched_per_day);
+CREATE INDEX idx_user_stories_viewed ON silver.user (stories_viewed_per_day);
+CREATE INDEX idx_user_time_feed ON silver.user (time_on_feed_per_day);
+CREATE INDEX idx_user_time_explore ON silver.user (time_on_explore_per_day);
+CREATE INDEX idx_user_time_reels ON silver.user (time_on_reels_per_day);
+CREATE INDEX idx_user_engagement_score ON silver.user (user_engagement_score);
+CREATE INDEX idx_user_content_pref ON silver.user (content_type_preference);
+CREATE INDEX idx_user_theme_pref ON silver.user (preferred_content_theme);
