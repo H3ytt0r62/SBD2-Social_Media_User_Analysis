@@ -57,7 +57,7 @@ CREATE TABLE DW.dim_act_inf(
 -- Construção da tabela fato usuario
 
 CREATE TABLE DW.fat_usr(
-    srk_usr                   INTEGER NOT NULL PRIMARY KEY,
+    srk_usr                             SERIAL PRIMARY KEY,
     age                                            INTEGER,
     gdr                                        VARCHAR(20),
     cty                                        VARCHAR(100),
