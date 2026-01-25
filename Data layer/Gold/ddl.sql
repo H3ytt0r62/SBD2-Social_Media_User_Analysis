@@ -4,10 +4,10 @@ CREATE SCHEMA IF NOT EXISTS DW;
 -- Comentário no schema
 COMMENT ON SCHEMA DW IS 'Camada GOLD/data-Werehouse - Dados prontos para análise e relatórios';
 
---dimensão 1 informações pessoais 
+--Dimensão 1 informações pessoais 
 
 CREATE TABLE DW.dim_psn_inf(
-    skr_psn_ifn SERIAL PRIMARY KEY,
+    srk_psn_ifn SERIAL PRIMARY KEY,
     ubr_rrl            VARCHAR(10),
     icm_lvl            VARCHAR(30),
     ept_stt            VARCHAR(50),
@@ -18,10 +18,10 @@ CREATE TABLE DW.dim_psn_inf(
     vlt_hrs_per_mnt   DECIMAL(5,2)
 );
 
---dimensão 2 informações de saúde
+--Dimensão 2 informações de saúde
 
 CREATE TABLE DW.dim_hlt_inf(
-    skr_hlt_inf  SERIAL PRIMARY KEY,
+    srk_hlt_inf  SERIAL PRIMARY KEY,
     exr_hrs_per_wek    DECIMAL(5,2),
     slp_hrs_per_ngt    DECIMAL(4,2),
     dit_qly             VARCHAR(30),
@@ -38,7 +38,7 @@ CREATE TABLE DW.dim_hlt_inf(
 --Dimensão 3 informações de conta
 
 CREATE TABLE DW.dim_act_inf(
-    skr_act_inf  SERIAL PRIMARY KEY,
+    srk_act_inf  SERIAL PRIMARY KEY,
     dly_atv_mnt_itm    DECIMAL(7,2),
     rls_wtd_per_day         INTEGER,
     ste_vwd_per_day         INTEGER,
@@ -57,16 +57,13 @@ CREATE TABLE DW.dim_act_inf(
 -- Construção da tabela fato usuario
 
 CREATE TABLE DW.fat_usr(
-
-    
-
-    skr_act_inf INTEGER NOT NULL REFERENCES DW.dim_act_inf,
-    skr_hlt_inf INTEGER NOT NULL REFERENCES DW.dim_hlt_inf,
-    skr_psn_ifn INTEGER NOT NULL REFERENCES DW.dim_psn_inf,
-
     srk_usr                   INTEGER NOT NULL PRIMARY KEY,
     age                                            INTEGER,
     gdr                                        VARCHAR(20),
-    cty                                        VARCHAR(100)
+    cty                                        VARCHAR(100),
 
+    -- Chaves estrangeiras (Surrogate Keys)
+    srk_act_inf INTEGER NOT NULL REFERENCES DW.dim_act_inf,
+    srk_hlt_inf INTEGER NOT NULL REFERENCES DW.dim_hlt_inf,
+    srk_psn_ifn INTEGER NOT NULL REFERENCES DW.dim_psn_inf
 );
