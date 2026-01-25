@@ -7,7 +7,7 @@ COMMENT ON SCHEMA DW IS 'Camada GOLD/data-Werehouse - Dados prontos para anális
 --Dimensão 1 informações pessoais 
 
 CREATE TABLE DW.dim_psn_inf(
-    srk_psn_ifn SERIAL PRIMARY KEY,
+    srk_psn_inf SERIAL PRIMARY KEY,
     ubr_rrl            VARCHAR(10),
     icm_lvl            VARCHAR(30),
     ept_stt            VARCHAR(50),
@@ -65,5 +65,5 @@ CREATE TABLE DW.fat_usr(
     -- Chaves estrangeiras (Surrogate Keys)
     srk_act_inf INTEGER NOT NULL REFERENCES DW.dim_act_inf,
     srk_hlt_inf INTEGER NOT NULL REFERENCES DW.dim_hlt_inf,
-    srk_psn_ifn INTEGER NOT NULL REFERENCES DW.dim_psn_inf
+    srk_psn_inf INTEGER NOT NULL REFERENCES DW.dim_psn_inf
 );
