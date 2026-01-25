@@ -50,7 +50,7 @@ CREATE TABLE DW.dim_act_inf(
     fls_cnt                 INTEGER,
     flg_cnt                 INTEGER,
     ctt_typ_pce         VARCHAR(50),
-    prd_ctt_theme       VARCHAR(50),
+    prd_ctt_thm       VARCHAR(50),
     usr_egm_scr        DECIMAL(5,2)
 );
 
