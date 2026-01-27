@@ -54,7 +54,7 @@ CREATE TABLE silver.user (
 
     -- Metadata
     created_at                  TIMESTAMP DEFAULT NOW()
-)
+);
 
 -- ============================================================================
 -- COMENTÁRIOS NAS COLUNAS
