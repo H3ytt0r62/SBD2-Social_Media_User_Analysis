@@ -60,42 +60,42 @@ CREATE TABLE silver.user (
 -- COMENTÁRIOS NAS COLUNAS
 -- ============================================================================
 
-COMMENT ON COLUMN USUARIO.user_id IS 'Id do usuário';
-COMMENT ON COLUMN USUARIO.age IS 'Idade do usuário';
-COMMENT ON COLUMN USUARIO.gender IS 'Gênero do usuário';
-COMMENT ON COLUMN USUARIO.country IS 'País na qual o usuário reside';
-COMMENT ON COLUMN USUARIO.urban_rural IS 'Descrição da área que o usuário reside, podendo ser rural ou urbana';
-COMMENT ON COLUMN USUARIO.income_level IS 'Nível de renda do usuário';
-COMMENT ON COLUMN USUARIO.employment_status IS 'Status de emprego do usuário';
-COMMENT ON COLUMN USUARIO.relationship_status IS 'Status de relacionamento';
-COMMENT ON COLUMN USUARIO.exercise_hours_per_week IS 'Horas de exercício físico por semana';
-COMMENT ON COLUMN USUARIO.sleep_hours_per_night IS 'Horas de sono por dia';
-COMMENT ON COLUMN USUARIO.diet_quality IS 'Qualidade da dieta';
-COMMENT ON COLUMN USUARIO.smoking IS 'Se fuma';
-COMMENT ON COLUMN USUARIO.alcohol_frequency IS 'Frequência de ingestão de álcool';
-COMMENT ON COLUMN USUARIO.perceived_stress_score IS 'Escala de estresse';
-COMMENT ON COLUMN USUARIO.self_reported_happiness IS 'Escala de felicidade descrita pelo usuário';
-COMMENT ON COLUMN USUARIO.body_mass_index IS 'Índice de massa corporal';
-COMMENT ON COLUMN USUARIO.blood_pressure_systolic IS 'Pressão sanguínea sistólica';
-COMMENT ON COLUMN USUARIO.blood_pressure_diastolic IS 'Pressão arterial diastólica';
-COMMENT ON COLUMN USUARIO.daily_steps_count IS 'Contagem de passos diários';
-COMMENT ON COLUMN USUARIO.weekly_work_hours IS 'Horas de trabalho semanal';
-COMMENT ON COLUMN USUARIO.social_events_per_month IS 'Eventos sociais por mês';
-COMMENT ON COLUMN USUARIO.books_read_per_year IS 'Livros lidos por ano';
-COMMENT ON COLUMN USUARIO.volunteer_hours_per_month IS 'Horas de voluntariado por mês';
-COMMENT ON COLUMN USUARIO.daily_active_minutes_instagram IS 'Minutos diários no instagram';
-COMMENT ON COLUMN USUARIO.ads_viewed_per_day IS 'Anúncios vistos por dia';
-COMMENT ON COLUMN USUARIO.ads_clicked_per_day IS 'Anúncios vistos por dia';
-COMMENT ON COLUMN USUARIO.time_on_feed_per_day IS 'Tempo no feed por dia';
-COMMENT ON COLUMN USUARIO.followers_count IS 'Contagem de seguidores';
-COMMENT ON COLUMN USUARIO.following_count IS 'Contagem de contas seguidas';
-COMMENT ON COLUMN USUARIO.content_type_preference IS 'Tipo de conteúdo de preferência';
-COMMENT ON COLUMN USUARIO.preferred_content_theme IS 'Tipo de tema preferido';
-COMMENT ON COLUMN USUARIO.user_engagement_score IS 'Escore de engajamento de usuário';
-COMMENT ON COLUMN USUARIO.reels_watched_per_day IS 'Reels assistidos por dia';
-COMMENT ON COLUMN USUARIO.stories_viewed_per_day IS 'Stories visto por dia';
-COMMENT ON COLUMN USUARIO.time_on_explore_per_day IS 'Tempo no explorar por dia';
-COMMENT ON COLUMN USUARIO.time_on_reels_per_day IS 'Tempo no reels por dia';
+COMMENT ON COLUMN silver.user.user_id IS 'Id do usuário';
+COMMENT ON COLUMN silver.user.age IS 'Idade do usuário';
+COMMENT ON COLUMN silver.user.gender IS 'Gênero do usuário';
+COMMENT ON COLUMN silver.user.country IS 'País na qual o usuário reside';
+COMMENT ON COLUMN silver.user.urban_rural IS 'Descrição da área que o usuário reside, podendo ser rural ou urbana';
+COMMENT ON COLUMN silver.user.income_level IS 'Nível de renda do usuário';
+COMMENT ON COLUMN silver.user.employment_status IS 'Status de emprego do usuário';
+COMMENT ON COLUMN silver.user.relationship_status IS 'Status de relacionamento';
+COMMENT ON COLUMN silver.user.exercise_hours_per_week IS 'Horas de exercício físico por semana';
+COMMENT ON COLUMN silver.user.sleep_hours_per_night IS 'Horas de sono por dia';
+COMMENT ON COLUMN silver.user.diet_quality IS 'Qualidade da dieta';
+COMMENT ON COLUMN silver.user.smoking IS 'Se fuma';
+COMMENT ON COLUMN silver.user.alcohol_frequency IS 'Frequência de ingestão de álcool';
+COMMENT ON COLUMN silver.user.perceived_stress_score IS 'Escala de estresse';
+COMMENT ON COLUMN silver.user.self_reported_happiness IS 'Escala de felicidade descrita pelo usuário';
+COMMENT ON COLUMN silver.user.body_mass_index IS 'Índice de massa corporal';
+COMMENT ON COLUMN silver.user.blood_pressure_systolic IS 'Pressão sanguínea sistólica';
+COMMENT ON COLUMN silver.user.blood_pressure_diastolic IS 'Pressão arterial diastólica';
+COMMENT ON COLUMN silver.user.daily_steps_count IS 'Contagem de passos diários';
+COMMENT ON COLUMN silver.user.weekly_work_hours IS 'Horas de trabalho semanal';
+COMMENT ON COLUMN silver.user.social_events_per_month IS 'Eventos sociais por mês';
+COMMENT ON COLUMN silver.user.books_read_per_year IS 'Livros lidos por ano';
+COMMENT ON COLUMN silver.user.volunteer_hours_per_month IS 'Horas de voluntariado por mês';
+COMMENT ON COLUMN silver.user.daily_active_minutes_instagram IS 'Minutos diários no instagram';
+COMMENT ON COLUMN silver.user.ads_viewed_per_day IS 'Anúncios vistos por dia';
+COMMENT ON COLUMN silver.user.ads_clicked_per_day IS 'Anúncios vistos por dia';
+COMMENT ON COLUMN silver.user.time_on_feed_per_day IS 'Tempo no feed por dia';
+COMMENT ON COLUMN silver.user.followers_count IS 'Contagem de seguidores';
+COMMENT ON COLUMN silver.user.following_count IS 'Contagem de contas seguidas';
+COMMENT ON COLUMN silver.user.content_type_preference IS 'Tipo de conteúdo de preferência';
+COMMENT ON COLUMN silver.user.preferred_content_theme IS 'Tipo de tema preferido';
+COMMENT ON COLUMN silver.user.user_engagement_score IS 'Escore de engajamento de usuário';
+COMMENT ON COLUMN silver.user.reels_watched_per_day IS 'Reels assistidos por dia';
+COMMENT ON COLUMN silver.user.stories_viewed_per_day IS 'Stories visto por dia';
+COMMENT ON COLUMN silver.user.time_on_explore_per_day IS 'Tempo no explorar por dia';
+COMMENT ON COLUMN silver.user.time_on_reels_per_day IS 'Tempo no reels por dia';
 
 
 -- ============================================================================
