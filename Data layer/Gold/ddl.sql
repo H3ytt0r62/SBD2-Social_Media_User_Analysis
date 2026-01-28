@@ -13,9 +13,9 @@ CREATE TABLE DW.dim_psn_inf(
     ept_stt            VARCHAR(50),
     rlt_stt            VARCHAR(50),
     wkl_wrk_hrs       DECIMAL(5,2),
-    scl_evt_per_mnt        INTEGER,
+    scl_evt_per_mth        INTEGER,
     bok_rad_per_yea        INTEGER,
-    vlt_hrs_per_mnt   DECIMAL(5,2)
+    vlt_hrs_per_mth   DECIMAL(5,2)
 );
 
 
@@ -88,9 +88,9 @@ COMMENT ON COLUMN DW.dim_psn_inf.icm_lvl IS 'Nível de renda do usuário';
 COMMENT ON COLUMN DW.dim_psn_inf.ept_stt IS 'Status de emprego do usuário';
 COMMENT ON COLUMN DW.dim_psn_inf.rlt_stt IS 'Status de relacionamento';
 COMMENT ON COLUMN DW.dim_psn_inf.wkl_wrk_hrs IS 'Horas de trabalho semanal';
-COMMENT ON COLUMN DW.dim_psn_inf.scl_evt_per_mnt IS 'Eventos sociais por mês';
+COMMENT ON COLUMN DW.dim_psn_inf.scl_evt_per_mth IS 'Eventos sociais por mês';
 COMMENT ON COLUMN DW.dim_psn_inf.bok_rad_per_yea IS 'Livros lidos por ano';
-COMMENT ON COLUMN DW.dim_psn_inf.vlt_hrs_per_mnt IS 'Horas de voluntariado por mês';
+COMMENT ON COLUMN DW.dim_psn_inf.vlt_hrs_per_mth IS 'Horas de voluntariado por mês';
 
 -- Tabela dimensão Informações de Saúde
 COMMENT ON COLUMN DW.dim_hlt_inf.srk_hlt_inf IS 'Surrogate Key da tabela dim_hlt_inf';
