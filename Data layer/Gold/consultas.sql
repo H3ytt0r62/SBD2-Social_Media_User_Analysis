@@ -34,7 +34,7 @@ GROUP BY age;
 
 ---objetivo: encontrar qual faixa étaria mais seria propicia a clicar em um anuncio 
 
----2.3 Conteudo consumido por cada faixa étaria
+---2.3 Conteúdo consumido por cada faixa étaria
 
 SELECT age as idade, AVG(tme_on_rls_per_day) AS tempo_de_reels, AVG(tme_on_fed_per_day)AS tempo_no_feed,AVG( tme_on_exp_per_day)AS tempo_de_explorar,AVG( ste_vwd_per_day)AS stories_por_dia
 FROM DW.fat_usr JOIN DW.dim_act_inf ON fat_usr.srk_act_inf = dim_act_inf.srk_act_inf
@@ -43,7 +43,7 @@ GROUP BY age;
 
 --- objetivo entender qual seria a melhor plataforma de conteudo para se divulgar anuncios dependendo da faixa étaria
 
---- 2.4 Paises que mais clicam em anuncios
+--- 2.4 Países que mais clicam em anúncios
 
 SELECT cty AS pais, ROUND(AVG(ads_clc_per_day),2) AS media_de_cliques
 FROM DW.fat_usr JOIN DW.dim_act_inf ON fat_usr.srk_act_inf = dim_act_inf.srk_act_inf
@@ -71,7 +71,103 @@ WITH Media_maiorq_6 AS(
 
 SELECT age as idade, COUNT(*)
 FROM Media_maiorq_6
-WHERE smk = 'no'
+WHERE smk = 'No'
 GROUP BY age;
 
 -- objetivo: entender a quatidade de publico disportivo temos em cada faixa etaria
+
+-- ============================================================================
+-- 4. CONSULTAS RELACIONADAS A ÁREA DE SÁUDE
+-- ============================================================================
+
+-- ============================================================================
+-- 4.1. QUANTIDADE DE FUMANTES POR PAÍS 
+-- ============================================================================
+-- Objetivo: medir a quantidade de fumantes nos países da América (Brasil, USA e Canada)
+
+SELECT 
+    f.cty AS Pais, 
+    COUNT(*) AS Quantidade_Fumantes
+FROM 
+    DW.fat_usr f
+JOIN 
+    DW.dim_hlt_inf h ON f.srk_hlt_inf = h.srk_hlt_inf
+WHERE 
+    h.smk = 'Yes' 
+GROUP BY 
+    f.cty
+ORDER BY 
+    quantidade_fumantes DESC;
+
+-- ============================================================================
+-- 4.2. FUMANTES POR FAIXA ETÁRIA (CTE)
+-- ============================================================================
+-- Objetivo: medir a quantidade de fumantes por faixa etária nos países
+
+WITH base_fumantes AS (
+    SELECT 
+        cty AS pais,
+        CASE 
+            WHEN age BETWEEN 18 AND 24 THEN '18-24 anos'
+            WHEN age BETWEEN 25 AND 29 THEN '25-29 anos'
+            WHEN age BETWEEN 30 AND 49 THEN '30-49 anos'
+            ELSE '50+ anos'
+        END AS faixa_etaria,
+        srk_hlt_inf
+    FROM DW.fat_usr
+)
+
+SELECT 
+    b.pais,
+    b.faixa_etaria,
+    COUNT(*) AS total_fumantes
+FROM base_fumantes b
+JOIN DW.dim_hlt_inf h ON b.srk_hlt_inf = h.srk_hlt_inf
+WHERE h.smk = 'Yes'
+GROUP BY b.pais, b.faixa_etaria
+ORDER BY b.pais, b.faixa_etaria;
+
+
+-- ============================================================================
+-- 4.3. GRUPO DE RISCO FUMANTES
+-- ============================================================================
+-- Objetivo: medir o grupo de risco de fumantes nos países estudados, 
+-- considerando pessoas que fuma, maiores de 40 anos e que praticam menos de 5 horas de exercício por semana
+
+
+SELECT 
+    f.cty AS pais, 
+    COUNT(*) AS total_risco_elevado
+FROM 
+    DW.fat_usr f
+JOIN 
+    DW.dim_hlt_inf h ON f.srk_hlt_inf = h.srk_hlt_inf
+WHERE 
+    h.smk = 'Yes'                    
+    AND h.exr_hrs_per_wek < 5     
+    AND f.age > 40   
+GROUP BY 
+    f.cty
+ORDER BY 
+    total_risco_elevado DESC;
+
+-- ============================================================================
+-- 4.4. GRUPO DE RISCO CARDIOVASCULAR (Hipertensão ou Obesidade)
+-- ============================================================================
+-- Objetivo: medir o grupo de risco cardiovascular nos países estudados 
+
+SELECT 
+    f.cty AS pais, 
+    COUNT(*) AS total_risco_saude
+FROM 
+    DW.fat_usr f
+JOIN 
+    DW.dim_hlt_inf h ON f.srk_hlt_inf = h.srk_hlt_inf
+WHERE 
+    (h.bld_prs_sys >= 140 AND h.bld_prs_dis >= 90)
+    OR 
+    (h.bdy_mss_idx >= 30)
+GROUP BY 
+    f.cty
+ORDER BY 
+    total_risco_saude DESC;
