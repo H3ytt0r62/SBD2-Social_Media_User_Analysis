@@ -6,7 +6,7 @@
 
 -- verificar a contagem de registros
 
-SELECT 'dim_act_inf' AS tabela, COUNT(*) AS linhas FROM DW.dim_prdt
+SELECT 'dim_act_inf' AS tabela, COUNT(*) AS linhas FROM DW.dim_act_inf
 UNION ALL
 SELECT 'dim_psn_inf' AS tabela, COUNT(*) AS linhas FROM DW.dim_hlt_inf
 UNION ALL
@@ -20,7 +20,7 @@ ORDER BY tabela;
 
 ---- 2.1. numero de usuarios por pais 
 
-SELECT COUNT(cty) 
+SELECT cty as pais,COUNT(cty) as qtd_por_pais
 FROM DW.fat_usr 
 GROUP BY cty;
 
@@ -36,7 +36,7 @@ GROUP BY age;
 
 ---2.3 Conteúdo consumido por cada faixa étaria
 
-SELECT age as idade, AVG(tme_on_rls_per_day) AS tempo_de_reels, AVG(tme_on_fed_per_day)AS tempo_no_feed,AVG( tme_on_exp_per_day)AS tempo_de_explorar,AVG( ste_vwd_per_day)AS stories_por_dia
+SELECT age as idade, ROUND(AVG(tme_on_rls_per_day),2) AS tempo_de_reels, ROUND(AVG(tme_on_fed_per_day),2) AS tempo_no_feed,ROUND(AVG( tme_on_exp_per_day),2)AS tempo_de_explorar,ROUND(AVG( ste_vwd_per_day),2)AS stories_por_dia
 FROM DW.fat_usr JOIN DW.dim_act_inf ON fat_usr.srk_act_inf = dim_act_inf.srk_act_inf
 GROUP BY age;
 
