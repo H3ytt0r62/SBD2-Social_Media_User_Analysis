@@ -136,20 +136,19 @@ ORDER BY b.pais, b.faixa_etaria;
 
 
 SELECT 
-    f.cty AS pais, 
-    COUNT(*) AS total_risco_elevado
+    -- 1. Total da Base
+    COUNT(*) AS base_total,
+
+    -- 2. Apenas Fumantes
+    SUM(CASE WHEN h.smk = 'Yes' THEN 1 ELSE 0 END) AS fumantes,
+
+    -- 3. Grupo de Risco (Filtro completo)
+    SUM(CASE WHEN h.smk = 'Yes' AND h.exr_hrs_per_wek < 5 AND f.age > 40 THEN 1 ELSE 0 END) AS grupo_risco
+
 FROM 
     DW.fat_usr f
-JOIN 
-    DW.dim_hlt_inf h ON f.srk_hlt_inf = h.srk_hlt_inf
-WHERE 
-    h.smk = 'Yes'                    
-    AND h.exr_hrs_per_wek < 5     
-    AND f.age > 40   
-GROUP BY 
-    f.cty
-ORDER BY 
-    total_risco_elevado DESC;
+LEFT JOIN 
+    DW.dim_hlt_inf h ON f.srk_hlt_inf = h.srk_hlt_inf;
 
 -- ============================================================================
 -- 4.4. GRUPO DE RISCO CARDIOVASCULAR (Hipertensão ou Obesidade)
