@@ -61,7 +61,7 @@ WITH base_conteudo AS (
             WHEN age BETWEEN 30 AND 49 THEN '30-49 anos'
             ELSE '50+ anos'
         END AS faixa_etaria,
-        srk_hlt_inf
+        srk_act_inf
     FROM DW.fat_usr
 )
 
