@@ -51,6 +51,32 @@ GROUP BY cty;
 
 --- Objetivo: entender qual pais é mais sucetivel a clicar em propagandas para focar os anuncios neste pais
 
+----- 3.5 conteudo consumido por faixa etaria
+
+WITH base_conteudo AS (
+    SELECT 
+        CASE 
+            WHEN age BETWEEN 18 AND 24 THEN '18-24 anos'
+            WHEN age BETWEEN 25 AND 29 THEN '25-29 anos'
+            WHEN age BETWEEN 30 AND 49 THEN '30-49 anos'
+            ELSE '50+ anos'
+        END AS faixa_etaria,
+        srk_hlt_inf
+    FROM DW.fat_usr
+)
+
+SELECT 
+    b.faixa_etaria,
+    ROUND(AVG(tme_on_fed_per_day),2) as tempo_no_feed,
+    ROUND(AVG(tme_on_exp_per_day),2) as tempo_na_explorar,
+    ROUND(AVG(tme_on_rls_per_day),2) as tempo_em_reels,
+    ROUND(AVG(ste_vwd_per_day),2) as stories_por_dia
+FROM base_conteudo b
+JOIN DW.dim_act_inf h ON b.srk_act_inf = h.srk_act_inf
+GROUP BY b.faixa_etaria
+ORDER BY b.faixa_etaria;
+
+
 --- 3 Consultas relacionadas a praticas de esporte
 
 --- 3.1 Faixa étaria mais interessada em conteudos fitness
@@ -82,6 +108,12 @@ SELECT cty AS pais, COUNT(*) AS total_sedentarios
 FROM DW.fat_usr JOIN DW.dim_hlt_inf ON  fat_usr.srk_hlt
 WHERE exr_hrs_per_wek < 1
 GROUP BY cty;
+
+-- 3.4 media de exercicio fisico por idade
+
+SELECT age as idade, ROUND(AVG(exr_hrs_per_wek),2) AS media_exercicio
+FROM DW.fat_usr JOIN DW.dim_hlt_inf ON  fat_usr.srk_hlt_inf = dim_hlt_inf.srk_hlt_inf
+GROUP BY age;
 
 -- ============================================================================
 -- 4. CONSULTAS RELACIONADAS A ÁREA DE SÁUDE
@@ -120,7 +152,7 @@ WITH base_fumantes AS (
             WHEN age BETWEEN 30 AND 49 THEN '30-49 anos'
             ELSE '50+ anos'
         END AS faixa_etaria,
-        srk_hlt_inf
+        srk_act_inf
     FROM DW.fat_usr
 )
 
