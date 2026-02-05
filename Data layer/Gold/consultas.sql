@@ -66,7 +66,7 @@ GROUP BY age;
 WITH Media_maiorq_6 AS(
     SELECT *
     FROM DW.fat_usr JOIN DW.dim_hlt_inf ON  fat_usr.srk_hlt_inf = dim_hlt_inf.srk_hlt_inf
-    WHERE exr_hrs_per_wek => 6;
+    WHERE exr_hrs_per_wek => 6
 )
 
 SELECT age as idade, COUNT(*)
