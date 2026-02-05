@@ -51,7 +51,7 @@ GROUP BY cty;
 
 --- Objetivo: entender qual pais é mais sucetivel a clicar em propagandas para focar os anuncios neste pais
 
------ 3.5 conteudo consumido por faixa etaria
+----- 2.5 conteudo consumido por faixa etaria
 
 WITH base_conteudo AS (
     SELECT 
