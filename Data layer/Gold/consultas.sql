@@ -76,6 +76,13 @@ GROUP BY age;
 
 -- objetivo: entender a quatidade de publico disportivo temos em cada faixa etaria
 
+-- 3.3 quantidade de sendatarios por pais
+
+SELECT cty AS pais, COUNT(*) AS total_sedentarios
+FROM DW.fat_usr JOIN DW.dim_hlt_inf ON  fat_usr.srk_hlt
+WHERE exr_hrs_per_wek < 1
+GROUP BY cty;
+
 -- ============================================================================
 -- 4. CONSULTAS RELACIONADAS A ÁREA DE SÁUDE
 -- ============================================================================
