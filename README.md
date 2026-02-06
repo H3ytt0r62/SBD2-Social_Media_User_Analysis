@@ -25,8 +25,6 @@ Trabalho de Sistema de banco de dados II da turma de verão do professor Thiago 
   </tr>
 </table>
 
-## DASHBOARD
-
 ## Dashboard
 
 ![Tela Inicial](Data%20Visualization/img/1.png)
