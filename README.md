@@ -24,3 +24,13 @@ Trabalho de Sistema de banco de dados II da turma de verão do professor Thiago 
     </td>
   </tr>
 </table>
+
+## DASHBOARD
+
+## Dashboard
+
+![Tela Inicial](Data%20Visualization/img/1.png)
+![Geral](Data%20Visualization/img/2.png)
+![Esporte](Data%20Visualization/img/3.png)
+![Saúde](Data%20Visualization/img/4.png)
+
